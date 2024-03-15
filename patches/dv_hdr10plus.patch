@@ -1,0 +1,24 @@
+From fa31b5f57a056168628d9097a0670bce073ddea8 Mon Sep 17 00:00:00 2001
+From: "K.J. Valencik" <kjvalencik@gmail.com>
+Date: Thu, 14 Mar 2024 13:34:23 -0400
+Subject: [PATCH] Filter HDR10+ when Dolby Vision is present
+
+---
+ .../DVDCodecs/Video/DVDVideoCodecAndroidMediaCodec.cpp           | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/xbmc/cores/VideoPlayer/DVDCodecs/Video/DVDVideoCodecAndroidMediaCodec.cpp b/xbmc/cores/VideoPlayer/DVDCodecs/Video/DVDVideoCodecAndroidMediaCodec.cpp
+index c83d263968..890de90b9c 100644
+--- a/xbmc/cores/VideoPlayer/DVDCodecs/Video/DVDVideoCodecAndroidMediaCodec.cpp
++++ b/xbmc/cores/VideoPlayer/DVDCodecs/Video/DVDVideoCodecAndroidMediaCodec.cpp
+@@ -535,6 +535,7 @@ bool CDVDVideoCodecAndroidMediaCodec::Open(CDVDStreamInfo &hints, CDVDCodecOptio
+ 
+       if (!removeDovi && (isDvhe || isDvh1))
+       {
++        removeHdr10Plus = true;
+         bool displaySupportsDovi{false};
+         bool mediaCodecSupportsDovi{false};
+         std::tie(displaySupportsDovi, mediaCodecSupportsDovi) =
+-- 
+2.44.0
+
