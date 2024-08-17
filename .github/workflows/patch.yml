@@ -91,7 +91,7 @@ jobs:
             --with-tarballs="$ANDROID_SDK_ROOT/xbmc-tarballs"
             --host=arm-linux-androideabi
             --with-sdk-path="$ANDROID_SDK_ROOT"
-            --with-ndk-path="$ANDROID_SDK_ROOT/ndk/21.4.7075529"
+            --with-ndk-path="$ANDROID_SDK_ROOT/ndk/26.2.11394342"
             --prefix="$ANDROID_SDK_ROOT/xbmc-depends" &&
           make -j$(getconf _NPROCESSORS_ONLN)
       - name: Build add-ons
